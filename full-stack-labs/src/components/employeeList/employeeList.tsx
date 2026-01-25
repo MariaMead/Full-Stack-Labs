@@ -1,10 +1,16 @@
-import { employees } from "./employeesAndDepartments";
+import { useState } from "react";
+import type { EmployeesDepartments } from "./employeesAndDepartments";
+import { employees } from "./employeesAndDepartments"
+import { AddEmployeeForm } from "../addEmployeeForm/addEmployee";
 
 type Departments = Record<string, string[]>;
 
 function EmployeeList() {
+    const [employeeList, setEmployeeList] = useState<EmployeesDepartments[]>(employees);
+
+
     const departments: Departments = {};
-    employees.map(employee => {
+    employeeList.map(employee => {
         if(!departments[employee.department]) {
             //makes empty array
             departments[employee.department] = [];
@@ -12,6 +18,10 @@ function EmployeeList() {
         // Adds each employee to their designated department
         departments[employee.department].push(employee.name)
     });
+
+    const addEmployee = (employee:EmployeesDepartments): void => {
+        setEmployeeList((prev) => [...prev, employee]);
+    }
 
     return(
         <>
@@ -26,6 +36,12 @@ function EmployeeList() {
                     </ul>
                 </section>
             ))}
+
+            {/*Add Form here*/}
+            <AddEmployeeForm
+                departments={Object.keys(departments)}
+                addEmployee={addEmployee}
+            />
         </>
     );
 }
