@@ -25,6 +25,12 @@ function EmployeeList() {
 
     return(
         <>
+              {/*Add Form here*/}
+            <AddEmployeeForm
+                departments={Object.keys(departments)}
+                addEmployee={addEmployee}
+            />
+
             {/* Key: Departments with an array of employees to be displayed in a list*/}
             {Object.entries(departments).map(([departmentName, names]) => (
                 <section className="department" key={departmentName}>
@@ -37,11 +43,6 @@ function EmployeeList() {
                 </section>
             ))}
 
-            {/*Add Form here*/}
-            <AddEmployeeForm
-                departments={Object.keys(departments)}
-                addEmployee={addEmployee}
-            />
         </>
     );
 }
