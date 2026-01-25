@@ -1,6 +1,6 @@
 footer {
     font: bold;
-    position: fixed;
+    text-align: right;
     bottom: 0;
     right: 2em;
 }
