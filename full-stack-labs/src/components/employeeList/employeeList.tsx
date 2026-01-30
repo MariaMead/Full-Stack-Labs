@@ -1,6 +1,6 @@
 import { useState } from "react";
-import type { EmployeesDepartments } from "./employeesAndDepartments";
-import { employees } from "./employeesAndDepartments"
+import type { EmployeesDepartments } from "../../data/employeesAndDepartments";
+import { employees } from "../../data/employeesAndDepartments"
 import { AddEmployeeForm } from "../addEmployeeForm/addEmployee";
 
 type Departments = Record<string, string[]>;
