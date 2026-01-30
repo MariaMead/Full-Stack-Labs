@@ -1,4 +1,4 @@
-function Header() {
+ function Header() {
     return(
         <header className="header">
             <img src="https://itsm-ace.ca/images/logo.svg" alt="Pixell River Logo" height="100px" width="100px" />

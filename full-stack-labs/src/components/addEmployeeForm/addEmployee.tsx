@@ -1,5 +1,5 @@
 import { useState } from "react";
-import type { EmployeesDepartments } from "../employeeList/employeesAndDepartments";
+import type { EmployeesDepartments } from "../../data/employeesAndDepartments";
 import "./addEmployee.css"
 
 export function AddEmployeeForm({

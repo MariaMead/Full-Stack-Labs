@@ -1,17 +1,29 @@
-import EmployeeList from "./components/employeeList/employeeList";
-import Footer from "./components/footer/footer";
-import Header from "./components/header/header";
+import { useState } from "react";
+import { Route, Routes } from "react-router-dom";
 
+import "./App.css";
+import { Layout } from "./components/layout/layout";
+import EmployeeList from "./components/employeeList/employeeList";
+import type { Role } from "./data/leadershipManagement";
+import { OrganizationList } from "./components/organization/organization";
+import { organizationData } from "./data/leadershipManagement";
 
 function App() {
-  
+const [organizationList] = useState<Role[]>(organizationData);
+
   return (
-    <>
-      <Header />
-      <EmployeeList />
-      <Footer />
-    </>
-  )
+      <Routes>
+        <Route path="/" element={<Layout />}>
+
+          <Route path="/employeeList" element={<EmployeeList />} />
+
+          <Route path="/organization" element={<OrganizationList
+            organization={organizationList} />} 
+            />
+
+        </Route>
+    </Routes>
+  );
 }
 
 export default App
